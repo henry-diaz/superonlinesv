@@ -1,0 +1,23 @@
+%br
+%br
+%br
+.well.well-sm
+  #nested-control
+    .form-horizontal
+      .radio
+        = label_tag [:show, :general].join('_') do
+          = radio_button_tag :show, :general
+          = model.model_name.human
+
+      :ruby
+        controls = LatteConfig[:schema][controller.controller_name].select{ |c|
+          c.pluralize == c &&
+          c.singularize != c &&
+          LatteConfig[:schema].keys.include?(c)
+        }
+
+      - controls.each do |control|
+        .radio
+          = label_tag [:show, control].join('_') do
+            = radio_button_tag :show, control
+            = t("activerecord.models.#{control.to_s.singularize}", count: :many)

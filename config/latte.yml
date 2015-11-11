@@ -1,0 +1,235 @@
+sitename: Super Online SV
+
+languages:
+  # Order by priority
+  # Default locale should be the first one
+  - es
+  - en
+  - de
+
+maintenances: &maintenances
+  admins:
+    - name
+    - email
+    - password
+    - password_confirmation
+  app_settings:
+    # DO NOT remove description item
+    - description
+    # Used for meta tags
+    - app_title
+    - app_description
+    # Id of contact page
+    #- contact_page_id
+    # SMTP server settings
+    #- mailer_address
+    #- mailer_port
+    #- mailer_domain
+    #- mailer_user_name
+    #- mailer_password
+    #- mailer_name
+    # INBOX info
+    #- inbox_name
+    #- inbox_email
+
+schema:
+  categories:
+    - category_id
+    - status
+    - priority
+    - name
+    - description
+    - content
+    - color
+    - icon
+    - delete_icon
+    - image
+    - delete_image
+    - tag_list
+    #-- has_many resources --#
+    - images
+    - videos
+    - datafiles
+  #articles:
+    #- category_id
+    #- author_id
+    #- featured
+    #- status
+    #- name
+    #- description
+    #- content
+    #- published_at
+    #- image
+    #- delete_image
+    #- tag_list
+    #-- has_many resources --#
+    #- images
+    #- videos
+    #- datafiles
+  #authors:
+    #- admin_id
+    #- name
+    #- website_url
+    #- twitter_url
+    #- facebook_url
+    #- linkedin_url
+    #- gplus_url
+    #- youtube_url
+    #- about
+    #- image
+    #- delete_image
+  #events:
+    #- category_id
+    #- featured
+    #- status
+    #- name
+    #- description
+    #- content
+    #- place
+    #- start_at
+    #- stop_at
+    #- price
+    #- image
+    #- delete_image
+    #- tag_list
+    #-- has_many resources --#
+    #- event_prices
+    #- images
+    #- videos
+    #- datafiles
+  #event_prices:
+    #- event_id
+    #- name
+    #- price
+  brands:
+    - name
+  products:
+    - category_id
+    - featured
+    #- exportation
+    - status
+    - name
+    - sku
+    #- slogan
+    #- bundle_units
+    #- gross_weight
+    #- net_weight
+    - price
+    - spec
+    - description
+    - image
+    - delete_image
+    - tag_list
+    #-- has_many resources --#
+    - images
+    - videos
+    - datafiles
+    - brand_id
+    - quantity
+    - condition
+  pages:
+    - content
+    - description
+    - in_footer
+    - in_navbar
+    - name
+    - page_id
+    - priority
+    - status
+    - image
+    - delete_image
+    - tag_list
+    #-- has_many resources --#
+    - images
+    - videos
+    - datafiles
+  banners:
+    - status
+    - priority
+    - featured
+    - name
+    - url
+    - new_tab
+    - image
+    - delete_image
+  #recipes_categories:
+    #- status
+    #- priority
+    #- recipes_category_id
+    #- name
+    #- description
+    #- image
+    #- delete_image
+  #recipes:
+    #- status
+    #- priority
+    #- featured
+    #- recipes_category_id
+    #- name
+    #- description
+    #- ingredients
+    #- preparation
+    #- image
+    #- delete_image
+    #- tag_list
+    #-- has_many resources --#
+    #- images
+    #- videos
+    #- datafiles
+  users:
+    - name
+    - email
+    - password
+    - password_confirmation
+  images:
+    - priority
+    - name
+    - image
+    - delete_image
+    - description
+  videos:
+    - priority
+    - name
+    - image
+    - delete_image
+    #- video
+    #- delete_video
+    - url
+    - description
+  datafiles:
+    - priority
+    - name
+    - image
+    - delete_image
+    - datafile
+    - delete_datafile
+    - description
+
+  # include maintenances
+  <<: *maintenances
+
+credentials:
+  facebook:
+    key: 'xxxxxxxxxxxxxxxxx'
+    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  twitter:
+    key: 'xxxxxxxxxxxxxxxxx'
+    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+  instagram:
+    key: 'xxxxxxxxxxxxxxxxx'
+    secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+
+icons:
+  admins: key
+  app_settings: cog
+  articles: file-text
+  authors: users
+  banners: image
+  brands: list-ul
+  categories: sitemap
+  events: calendar
+  pages: file
+  products: barcode
+  recipes_categories: list-ul
+  recipes: cutlery
+  users: user

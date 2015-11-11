@@ -1,0 +1,29 @@
+.row
+  .col-xs-12.col-sm-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        .panel-title.clearfix
+          %h4.pull-left
+            = model.model_name.human
+          = link_to new_item_url, class: 'btn btn-success pull-right' do
+            %span.glyphicon.glyphicon-plus
+            Nuevo
+
+      .panel-body
+        = bootstrap_nested_form_for [namespace, @item], url: url_for(action: :update, id: @item.id), layout: :horizontal, label_col: 'col-sm-2', control_col: 'col-sm-9' do |f|
+          = render partial: 'form', locals: { f: f }
+          %br
+          .text-center
+            = f.submit t('.save'), class: 'btn btn-primary btn-lg'
+
+      .panel-footer.clearfix
+        = link_to index_url, class: 'btn btn-default btn-sm' do
+          %span.glyphicon.glyphicon-arrow-left
+          = t '.list'
+
+        = link_to item_url(@item), class: 'btn btn-danger btn-sm pull-right', method: :delete, data: { confirm: t('.confirm_delete')} do
+          %span.glyphicon.glyphicon-trash
+          = t '.delete'
+
+- content_for :nested_control do
+  = render partial: 'layouts/latte/application/nested_control' rescue nil

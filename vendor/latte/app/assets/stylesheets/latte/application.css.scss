@@ -1,0 +1,62 @@
+// bootstrap
+@import 'bootstrap-sprockets';
+@import 'themes/cafeina/variables';
+@import 'bootstrap';
+@import 'themes/cafeina/theme';
+@import 'file-field';
+@import 'bootstrap-tagsinput';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+.datetime-select {
+  display: inline-block;
+  width: auto;
+}
+
+.table {
+  tr {
+    td {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &:last-child {
+        width: 1%;
+      }
+    }
+  }
+}
+
+label.required:after {
+  content: "*";
+}
+
+fieldset {
+  margin-top: 20px;
+}
+
+input[type=color] {
+  margin: 0;
+  padding: 0;
+  width: 30px;
+}
+
+.fields {
+  padding-bottom: 20px;
+  padding-top: 20px;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  &:nth-child(even) {
+    background: $gray-lighter;
+  }
+
+  .remove_nested_fields {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+}

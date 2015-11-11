@@ -1,0 +1,16 @@
+= f.text_field :priority
+= f.image_file_field :image
+
+- if LatteConfig[:languages].length > 1
+  %ul.nav.nav-tabs{ role: :tablist }
+    - LatteConfig[:languages].each do |lang|
+      %li{ role: :presentation, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+        = link_to "##{f.object.indentifier}#{lang}", 'aria-controls' => "#{f.object.indentifier}#{lang}", role: :tab, 'data-toggle' => 'tab' do
+          = image_tag "latte/flags/#{lang}.gif"
+          = t "languages.#{lang}"
+
+.tab-content
+  - LatteConfig[:languages].each do |lang|
+    .tab-pane{ id: "#{f.object.indentifier}#{lang}", role: :tabpanel, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+      = f.text_field "name_#{lang}"
+      = f.text_area "description_#{lang}", rows: 4

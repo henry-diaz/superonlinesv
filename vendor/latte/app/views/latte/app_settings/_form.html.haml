@@ -1,0 +1,22 @@
+%h4
+  = t '.general'
+
+= f.text_field :app_title
+= f.text_area :app_description, rows: 4
+= f.select :contact_page_id, @pages.map{ |page| [page.name, page.id] }, { include_blank: true }
+
+%h4
+  = t '.smtp_settings'
+
+= f.text_field :mailer_address
+= f.text_field :mailer_port
+= f.text_field :mailer_domain
+= f.text_field :mailer_user_name
+= f.password_field :mailer_password, value: @item.mailer_password
+= f.text_field :mailer_name
+
+%h4
+  = t '.inbox_settings'
+
+= f.text_field :inbox_name
+= f.text_field :inbox_email

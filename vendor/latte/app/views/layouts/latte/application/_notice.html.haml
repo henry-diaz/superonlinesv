@@ -1,0 +1,8 @@
+- if flash[:notice]
+  .row
+    .col-xs-12.col-sm-12.col-lg-12
+      .alert.alert-info.alert-dismissible{ role: 'alert' }
+        %strong
+          = flash[:notice]
+        = button_tag class: 'close', data: { dismiss: 'alert' } do
+          &times;

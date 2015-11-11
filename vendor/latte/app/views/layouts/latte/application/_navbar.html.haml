@@ -1,0 +1,61 @@
+.navbar.navbar-inverse.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{ type: 'button', data: { target: '.navbar-responsive-collapse', toggle: 'collapse' }}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+
+      = link_to latte_root_url, class: 'navbar-brand' do
+        = image_tag 'latte/brand.png'
+      = link_to latte_root_url, class: 'navbar-brand' do
+        Super Online SV
+
+    .navbar-collapse.collapse.navbar-responsive-collapse
+      %ul.nav.navbar-nav.navbar-right
+
+        -#
+          - if LatteConfig[:languages].length > 1
+            %li.dropdown
+              = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+                = image_tag("latte/flags/#{I18n.locale}.gif")
+                = t("languages.#{I18n.locale}")
+                %b.caret
+
+              %ul.dropdown-menu
+                - LatteConfig[:languages].each do |language|
+                  - unless language.to_sym == I18n.locale
+                    %li
+                      = link_to url_for(locale: language) do
+                        = image_tag("latte/flags/#{language}.gif")
+                        = t("languages.#{language}")
+
+        %li.dropdown
+          = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+            %span.glyphicon.glyphicon-list
+            = t '.maintenances'
+            %b.caret
+
+          %ul.dropdown-menu
+
+            - LatteConfig[:maintenances].keys.each do |control|
+              %li
+                = link_to url_for(controller: control, action: :index) do
+                  = icon(LatteConfig[:icons][control]) if LatteConfig[:icons].has_key?(control)
+                  = t("activerecord.models.#{control.to_s.singularize}", count: :many)
+
+        %li.dropdown
+          = link_to '#', class: 'dropdown-toggle', data: { toggle: 'dropdown' } do
+            %span.glyphicon.glyphicon-user
+            =  current_admin.name
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              = link_to nil do
+                %span.glyphicon.glyphicon-user
+                = t '.profile'
+            %li.divider
+            %li
+              = link_to destroy_admin_session_path, method: :delete do
+                %span.glyphicon.glyphicon-off
+                = t '.logout'

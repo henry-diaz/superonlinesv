@@ -1,0 +1,9 @@
+%ul.nav.nav-sidebar
+  - (LatteConfig[:schema].keys - LatteConfig[:maintenances].keys).each do |control|
+    - unless LatteConfig[:schema].values.flatten.include?(control)
+      %li{ class: controller.controller_name == control ? 'active' : nil }
+        = link_to url_for(controller: control, action: :index) do
+          = icon(LatteConfig[:icons][control]) if LatteConfig[:icons].has_key?(control)
+          = t("activerecord.models.#{control.to_s.singularize}", count: :many)
+
+= yield :nested_control

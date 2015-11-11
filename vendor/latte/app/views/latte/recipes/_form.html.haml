@@ -1,0 +1,59 @@
+= field_set_tag t('.general'), id: :general do
+
+  = f.form_group :status, label: { text: t('activerecord.attributes.recipe.status') } do
+    - Category.statuses.keys.each do |status|
+      = f.radio_button :status, status, label: t("activerecord.enum.recipe.status.#{status}")
+
+  = f.text_field :priority
+
+  = f.form_group :featured, label: { text: t('activerecord.attributes.recipe.featured') } do
+    = f.check_box :featured
+
+  = f.image_file_field :image
+
+  = f.select :recipes_category_id, @recipes_categories.map{ |category| [category.name, category.id] }, { include_blank: true }
+
+  - if LatteConfig[:languages].length > 1
+    %ul.nav.nav-tabs{ role: :tablist }
+      - LatteConfig[:languages].each do |lang|
+        %li{ role: :presentation, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+          = link_to "##{f.object.indentifier}#{lang}", 'aria-controls' => "#{f.object.indentifier}#{lang}", role: :tab, 'data-toggle' => 'tab' do
+            = image_tag "latte/flags/#{lang}.gif"
+            = t "languages.#{lang}"
+
+  .tab-content
+    - LatteConfig[:languages].each do |lang|
+      .tab-pane{ id: "#{f.object.indentifier}#{lang}", role: :tabpanel, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+        = f.text_field "name_#{lang}"
+        = f.text_area "description_#{lang}", rows: 4
+        = f.cktext_area "ingredients_#{lang}", rows: 15, ckeditor: { height: 200 }
+        = f.cktext_area "preparation_#{lang}", rows: 15, ckeditor: { height: 400 }
+
+  = f.tags_field :tag_list
+
+= f.field_set :images do
+  = f.fields_for :images do |ff|
+    = render partial: 'latte/images/form', locals: { f: ff }
+    = ff.link_to_remove class: 'btn btn-sm btn-danger' do
+      %span.glyphicon.glyphicon-trash
+
+  = f.link_to_add :images, class: 'btn btn-sm btn-success pull-right' do
+    %span.glyphicon.glyphicon-plus
+
+= f.field_set :videos do
+  = f.fields_for :videos do |ff|
+    = render partial: 'latte/videos/form', locals: { f: ff }
+    = ff.link_to_remove class: 'btn btn-sm btn-danger' do
+      %span.glyphicon.glyphicon-trash
+
+  = f.link_to_add :videos, class: 'btn btn-sm btn-success pull-right' do
+    %span.glyphicon.glyphicon-plus
+
+= f.field_set :datafiles do
+  = f.fields_for :datafiles do |ff|
+    = render partial: 'latte/datafiles/form', locals: { f: ff }
+    = ff.link_to_remove class: 'btn btn-sm btn-danger' do
+      %span.glyphicon.glyphicon-trash
+
+  = f.link_to_add :datafiles, class: 'btn btn-sm btn-success pull-right' do
+    %span.glyphicon.glyphicon-plus

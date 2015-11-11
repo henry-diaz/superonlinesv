@@ -1,0 +1,19 @@
+= field_set_tag t('.general'), id: :general do
+
+  = f.form_group :status, label: { text: t('activerecord.attributes.banner.status') } do
+    - Category.statuses.keys.each do |status|
+      = f.radio_button :status, status, label: t("activerecord.enum.banner.status.#{status}")
+
+  = f.text_field :priority
+
+  = f.form_group :featured, label: { text: t('activerecord.attributes.banner.featured') } do
+    = f.check_box :featured
+
+  = f.text_field :name
+
+  = f.image_file_field :image
+
+  = f.text_field :url, placeholder: 'http://'
+
+  = f.form_group :new_tab, label: { text: t('activerecord.attributes.banner.new_tab') } do
+    = f.check_box :new_tab

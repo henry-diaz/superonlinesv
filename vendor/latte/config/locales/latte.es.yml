@@ -1,0 +1,540 @@
+es:
+  date:
+    abbr_day_names:
+    - dom
+    - lun
+    - mar
+    - mié
+    - jue
+    - vie
+    - sáb
+    abbr_month_names:
+    -
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %b"
+      custom: "%d de %B, %Y"
+    month_names:
+    -
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: alrededor de 1 hora
+        other: alrededor de %{count} horas
+      about_x_months:
+        one: alrededor de 1 mes
+        other: alrededor de %{count} meses
+      about_x_years:
+        one: alrededor de 1 año
+        other: alrededor de %{count} años
+      almost_x_years:
+        one: casi 1 año
+        other: casi %{count} años
+      half_a_minute: medio minuto
+      less_than_x_minutes:
+        one: menos de 1 minuto
+        other: menos de %{count} minutos
+      less_than_x_seconds:
+        one: menos de 1 segundo
+        other: menos de %{count} segundos
+      over_x_years:
+        one: más de 1 año
+        other: más de %{count} años
+      x_days:
+        one: 1 día
+        other: "%{count} días"
+      x_minutes:
+        one: 1 minuto
+        other: "%{count} minutos"
+      x_months:
+        one: 1 mes
+        other: "%{count} meses"
+      x_seconds:
+        one: 1 segundo
+        other: "%{count} segundos"
+    prompts:
+      day: Día
+      hour: Hora
+      minute: Minutos
+      month: Mes
+      second: Segundos
+      year: Año
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: debe ser aceptado
+      blank: no puede estar en blanco
+      present: debe estar en blanco
+      confirmation: no coincide
+      empty: no puede estar vacío
+      equal_to: debe ser igual a %{count}
+      even: debe ser par
+      exclusion: está reservado
+      greater_than: debe ser mayor que %{count}
+      greater_than_or_equal_to: debe ser mayor que o igual a %{count}
+      inclusion: no está incluido en la lista
+      invalid: no es válido
+      less_than: debe ser menor que %{count}
+      less_than_or_equal_to: debe ser menor que o igual a %{count}
+      not_a_number: no es un número
+      not_an_integer: debe ser un entero
+      odd: debe ser impar
+      record_invalid: 'La validación falló: %{errors}'
+      restrict_dependent_destroy:
+        one: No se puede eliminar el registro porque existe un %{record} dependiente
+        many: No se puede eliminar el registro porque existen %{record} dependientes
+      taken: ya está en uso
+      too_long: es demasiado largo (%{count} caracteres máximo)
+      too_short: es demasiado corto (%{count} caracteres mínimo)
+      wrong_length: no tiene la longitud correcta (%{count} caracteres exactos)
+      other_than: debe ser distinto de %{count}
+      url: no es una URL válida
+    template:
+      body: 'Se encontraron problemas con los siguientes campos:'
+      header:
+        one: No se pudo guardar este/a %{model} porque se encontró 1 error
+        other: No se pudo guardar este/a %{model} porque se encontraron %{count} errores
+  helpers:
+    select:
+      prompt: Por favor seleccione
+    submit:
+      create: Crear %{model}
+      submit: Guardar %{model}
+      update: Actualizar %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u %n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%u %n"
+        units:
+          billion: mil millones
+          million: millón
+          quadrillion: mil billones
+          thousand: mil
+          trillion: billón
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%u %n"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: " y "
+      two_words_connector: " y "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%A, %d de %B de %Y %H:%M:%S %z"
+      long: "%d de %B de %Y %H:%M"
+      short: "%d de %b %H:%M"
+      custom: "%d de %B %Y, %I:%M%P"
+    pm: pm
+
+  languages:
+    es: Español
+    en: Inglés
+    de: Alemán
+    fr: Francés
+
+  file_field:
+    clear: Limpiar
+
+  will_paginate:
+    previous_label: '«'
+    next_label: '»'
+    page_gap: '...'
+
+  activerecord:
+    models:
+      admin:
+        one: Administrador
+        other: Administradores
+      app_setting:
+        one: Configuración
+        other: Configuración
+      article:
+        one: Artículo
+        other: Artículos
+      author:
+        one: Autor
+        other: Autores
+      brand:
+        one: Marca
+        other: Marcas
+      banner:
+        one: Banner
+        other: Banners
+      category:
+        one: Categoría
+        other: Categorías
+      datafile:
+        one: Archivo
+        other: Archivos
+      event:
+        one: Evento
+        other: Eventos
+      event_price:
+        one: Precio
+        other: Precios
+      image:
+        one: Imagen
+        other: Imágenes
+      page:
+        one: Página
+        other: Páginas
+      product:
+        one: Producto
+        other: Productos
+      recipes_category:
+        one: Categoría de recetas
+        other: Categorías de recetas
+      recipe:
+        one: Receta
+        other: Recetas
+      user:
+        one: Usuario
+        other: Usuarios
+      video:
+        one: Video
+        other: Videos
+    attributes:
+      admin:
+        email: Email
+        name: Nombre
+        password_confirmation: Confirmación de contraseña
+        password: Contraseña
+      app_setting:
+        app_title: Título sitio / sistema
+        app_description: Descripción sitio / sistema
+        contact_page_id: ID página de contacto
+        description: Descripción
+        inbox_email: Correo electrónico
+        inbox_name: Nombre completo
+        mailer_address: URL o IP servidor
+        mailer_domain: Dominio
+        mailer_name: Nombre sitio / sistema
+        mailer_password: Contraseña
+        mailer_port: Puerto
+        mailer_user_name: Usuario
+      article:
+        author_id: Autor
+        author_name: Autor
+        category_id: Categoría
+        category_name: Categoría
+        content: Contenido
+        description: Descripción
+        featured: ¿Destacado?
+        image: Imagen
+        name: Nombre
+        published_at: Fecha publicación
+        status: Estado
+        tag_list: Etiquetas
+      author:
+        about: Sobre el autor
+        facebook_url: URL de Facebook
+        gplus_url: URL de Google plus
+        image: Avatar
+        linkedin_url: URL de Linkedin
+        name: Nombre
+        twitter_url: URL de Twitter
+        website_url: URL de sitio web
+        youtube_url: URL de Youtube
+      brand:
+        name: Nombre
+      banner:
+        featured: ¿Destacado?
+        image: Imagen
+        name: Nombre
+        new_tab: ¿Abrir en otra ventana?
+        priority: Prioridad
+        status: Estado
+        url: URL
+      category:
+        category_id: Categoría padre
+        category_name: Categoría padre
+        color: Color
+        content: Contenido
+        description: Descripción
+        icon: Ícono
+        image: Imagen
+        name: Nombre
+        priority: Prioridad
+        status: Estado
+        tag_list: Etiquetas
+      datafile:
+        datafile: Archivo
+        description: Descripción
+        image: Portada
+        name: Nombre
+        priority: Prioridad
+      event:
+        category_id: Categoría
+        content: Contenido
+        description: Descripción
+        featured: ¿Destacado?
+        image: Imagen
+        name: Nombre
+        place: Lugar
+        price: Precio
+        start_at: Inicia
+        status: Estado
+        stop_at: Termina
+        tag_list: Etiquetas
+      event_price:
+        name: Nombre
+        price: Precio
+      image:
+        description: Descripción
+        image: Imagen
+        name: Nombre
+        priority: Prioridad
+      page:
+        content: Contenido
+        description: Descripción
+        image: Imagen
+        in_footer: ¿En pie de página?
+        in_navbar: ¿En barra de navegación?
+        name: Nombre
+        page_id: Página padre
+        page_name: Página padre
+        priority: Prioridad
+        status: Estado
+        tag_list: Etiquetas
+      product:
+        bundle_units: Unidades por bulto
+        category_id: Categoría
+        description: Descripción
+        exportation: ¿Producto de exportación?
+        featured: ¿Destacado?
+        gross_weight: Peso bruto
+        image: Imagen
+        name: Nombre
+        net_weight: Peso neto
+        price: Precio
+        slogan: Slogan
+        spec: Características
+        status: Estado
+        tag_list: Etiquetas
+        brand_id: Marca
+        quantity: Cantidad
+        condition: Condición
+        sku: SKU
+      recipes_category:
+        description: Descripción
+        image: Imagen
+        name: Nombre
+        priority: Prioridad
+        recipes_category_id: Categoría de recetas padre
+        status: Estado
+      recipe:
+        description: Descripción
+        featured: ¿Destacado?
+        image: Imagen
+        ingredients: Ingredientes
+        name: Nombre
+        preparation: Preparación
+        priority: Prioridad
+        recipes_category_id: Categoría de recetas
+        status: Estado
+        tag_list: Etiquetas
+      user:
+        email: Email
+        name: Nombre
+        password_confirmation: Confirmación de contraseña
+        password: Contraseña
+      video:
+        description: Descripción
+        image: Portada
+        name: Nombre
+        priority: Prioridad
+        url: URL
+        video: Video
+    enum:
+      article:
+        status:
+          disabled: Borrador
+          enabled: Publicado
+      category:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      banner:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      event:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      page:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      product:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      recipes_category:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+      recipe:
+        status:
+          disabled: Inactivo
+          enabled: Activo
+
+  concerns:
+    latte:
+      tabled:
+        index:
+          confirm_delete: ¿Está seguro?
+          delete: Eliminar
+          edit: Editar
+        edit:
+          confirm_delete: ¿Está seguro?
+          delete: Eliminar
+          list: Volver a la lista
+          save: Guardar
+        new:
+          list: Volver a la lista
+          save: Guardar
+
+  layouts:
+    latte:
+      application:
+        breadcrumb:
+          edit: Editar registro
+          home: Inicio
+          new: Nuevo registro
+        navbar:
+          logout: Cerrar sesión
+          maintenances: Mantenimientos
+          profile: Perfil
+        notice:
+          created: Registro creado con éxito
+          deleted: Registro eliminado con éxito
+          updated: Registro actualizado con éxito
+
+  latte:
+    admins:
+      form:
+        general: Información general
+    app_settings:
+      form:
+        general: Configuración general
+        inbox_settings: Configuración buzón de entrada
+        smtp_settings: Configuración SMTP (Servidor de salida)
+    authors:
+      form:
+        general: Información general
+    articles:
+      form:
+        general: Información general
+    brands:
+      form:
+        general: Información general
+    banners:
+      form:
+        general: Información general
+    categories:
+      form:
+        general: Información general
+    devise:
+      sessions:
+        new:
+          sign_in: Ingresar
+      shared:
+        links:
+          forgot_your_password: ¿Olvidó su contraseña?
+          sign_in: Ingresar
+      passwords:
+        new:
+          forgot_your_password: ¿Olvidó su contraseña?
+          send_me_reset_password_instructions: Conseguir una nueva contraseña
+    events:
+      form:
+        general: Información general
+    pages:
+      form:
+        general: Información general
+    products:
+      form:
+        general: Información general
+    users:
+      form:
+        general: Información general
+    recipes_categories:
+      form:
+        general: Información general
+    recipes:
+      form:
+        general: Información general

@@ -1,0 +1,32 @@
+= field_set_tag t('.general'), id: :general do
+
+  = f.select :admin_id, @admins.map{ |admin| [admin.name, admin.id] }, { include_blank: true, disabled: Author.all.map(&:admin_id) }
+
+  = f.text_field :name
+
+  = f.image_file_field :image
+
+  = f.text_field :website_url, placeholder: 'http://'
+
+  = f.text_field :twitter_url, placeholder: 'http://'
+
+  = f.text_field :facebook_url, placeholder: 'http://'
+
+  = f.text_field :linkedin_url, placeholder: 'http://'
+
+  = f.text_field :gplus_url, placeholder: 'http://'
+
+  = f.text_field :youtube_url, placeholder: 'http://'
+
+  - if LatteConfig[:languages].length > 1
+    %ul.nav.nav-tabs{ role: :tablist }
+      - LatteConfig[:languages].each do |lang|
+        %li{ role: :presentation, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+          = link_to "##{f.object.indentifier}#{lang}", 'aria-controls' => "#{f.object.indentifier}#{lang}", role: :tab, 'data-toggle' => 'tab' do
+            = image_tag "latte/flags/#{lang}.gif"
+            = t "languages.#{lang}"
+
+  .tab-content
+    - LatteConfig[:languages].each do |lang|
+      .tab-pane{ id: "#{f.object.indentifier}#{lang}", role: :tabpanel, class: LatteConfig[:languages].first == lang ? 'active' : nil }
+        = f.cktext_area "about_#{lang}", rows: 15, ckeditor: { height: 400 }

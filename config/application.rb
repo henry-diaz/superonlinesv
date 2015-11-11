@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module Superonlinesv
   class Application < Rails::Application
+    
+    config.i18n.default_locale = LatteConfig[:languages].first
+    
+    # Fallback translations
+    config.i18n.fallbacks = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
