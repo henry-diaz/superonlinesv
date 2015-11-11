@@ -1,7 +1,15 @@
-== SUPER ONLINE - Ingeniería de la web, Universidad Don Bosco 2015
+== SUPER ONLINE SV
+
+Un proyecto para la matería de Ingeniería de la Web, de la Universidad Don Bosco.
+
+Catedrático:
+
+* Mg. José Mauricio Flores Áviles
 
 Alumnos:
 
 * DP020565 Díaz Palacios, Henry Alberto
 
 * JB090575 Jovel Barrera, Roberto Ernesto
+
+* MH040413 Mejía Hernandez, Zulma Iveth
