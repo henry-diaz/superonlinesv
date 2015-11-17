@@ -56,3 +56,5 @@ end
 
 
 gem 'ratyrate'
+
+gem 'attr_encrypted'

@@ -41,4 +41,15 @@ class Product < ActiveRecord::Base
   ##
   # FriendlyId setup
   friendly_id :name, use: [:slugged, :finders]
+
+  def image_url
+    image.url
+  end
+
+  def category_name
+    category.try(:name)
+  end
+  def brand_name
+    brand.try(:name)
+  end
 end

@@ -10,6 +10,8 @@ Alumnos:
 
 * DP020565 Díaz Palacios, Henry Alberto
 
+* GD081456 García Díaz, José Carlos
+
 * JB090575 Jovel Barrera, Roberto Ernesto
 
 * MH040413 Mejía Hernandez, Zulma Iveth

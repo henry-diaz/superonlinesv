@@ -411,6 +411,10 @@ es:
         name: Nombre
         password_confirmation: Confirmación de contraseña
         password: Contraseña
+        username: Nombre de usuario
+        credit_card: Tarjeta de crédito
+        phone: Teléfono
+        address: Dirección
       video:
         description: Descripción
         image: Portada
