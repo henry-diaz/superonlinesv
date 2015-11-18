@@ -118,12 +118,11 @@ $(document).ready(function () {
 		var productId = $(this).data('productid');
 
 		var cartToken = getCookie('cart-token');
-		if (cartToken == null) {
+		console.log('GetCartToken' + cartToken);
+		if (cartToken == '') {
 			cartToken = calcMD5(Date.now().toString());
 			setCookie("cart-token", cartToken, 1);
 		}
-
-		console.log(cartToken);
 
 		var requestUrl = 'carts/add';
 		var requestParameters = {
