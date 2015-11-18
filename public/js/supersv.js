@@ -136,14 +136,14 @@ $(document).ready(function () {
 			doneAddCart, errorAddCart, alwaysAddCart);
 		event.preventDefault();
 	});
-	
+
 	var doneAddCart = function (data, textStatus, jqXHR) {
 		if (data.success) {
 			$('#signin-form').find("input[type=text], input[type=password], input[type=email]").val("");
 			$('#alert-container').html('<div id="itemAdded" class="alert alert-dismissible alert-success">' +
 				'<button type="button" class="close" data-dismiss="alert">×</button>' +
 				'<strong>¡Agregado!</strong> Este item se agregó a tu carrito de compra.' +
-				'</div>'+
+				'</div>' +
 				'<script>setTimeout(function(){$("#itemAdded").remove();}, 2000);</script>');
 		} else {
 			var errors;
@@ -166,7 +166,75 @@ $(document).ready(function () {
 		return;
 	};
 	// Add Cart End
-	
+	// Get Cart
+	$('#update-cart').click(function () {
+		getCart();
+		event.preventDefault();
+	});
+
+	var getCart = function () {
+		var cartToken = getCookie('cart-token');
+		if (cartToken == null) {
+			// no hay carrito handle this
+		}
+		console.log(cartToken);
+		var requestUrl = 'carts?cart-token=' + cartToken;
+		requestHandler('GET', requestUrl, null,
+			doneGetCart, errorGetCart, alwaysAddCart);
+	};
+
+	var doneGetCart = function (data, textStatus, jqXHR) {
+		if (data.products.lenght != 0) {
+			var subtotal = 0;
+			$('#cart-details').html('');
+			data.products.forEach(function (element) {
+				if (element.id != null) {
+					subtotal += element.quantity * element.price;
+					$('#cart-details').append(
+						'<tr>' +
+						'<td class="cart_product">' +
+						'<a href=""><img src="' + element.image + '" alt=""></a>' +
+						'</td>' +
+						'<td class="cart_description">' +
+						'<h4><a href="">' + element.name + '</a></h4>' +
+						'<p>Web ID: ' + element.sku + '</p>' +
+						'</td>' +
+						'<td class="cart_price">' +
+						'<p>$' + element.price + '</p>' +
+						'</td>' +
+						'<td class="cart_quantity">' +
+						'<div class="cart_quantity_button">' +
+						'<a class="cart_quantity_up" href=""> + </a>' +
+						'<input class="cart_quantity_input" type="text" name="quantity" value="' + element.quantity + '" autocomplete="off" size="2">' +
+						'<a class="cart_quantity_down" href=""> - </a>' +
+						'</div>' +
+						'</td>' +
+						'<td class="cart_total">' +
+						'<p class="cart_total_price">$' + element.quantity * element.price + '</p>' +
+						'</td>' +
+						'<td class="cart_delete">' +
+						'<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>' +
+						'</td>' +
+						'</tr>');
+				}
+			}, this);
+			$('#cart-subtotal').html('$' + subtotal);
+			$('#cart-total').html('$' + subtotal);
+		} else {
+			console.log('malo');
+		}
+		event.preventDefault();
+	};
+	var errorGetCart = function (jqXHR, textStatus, errorThrown) {
+		$('#alert-container').html('<div class="alert alert-dismissible alert-danger">' +
+			'<button type="button" class="close" data-dismiss="alert">×</button>' +
+			'<strong>Error!</strong> Hubo un problema, no se pudo obtener el carrito de compra.' +
+			'</div>');
+	};
+	var alwaysGetCart = function (data, textStatus, errorThrown) {
+		return;
+	};
+	// Get Cart End
 	
 	
 	var requestHandler = function (m, u, d, s, f, a) {
@@ -185,7 +253,7 @@ $(document).ready(function () {
 		document.cookie = cname + "=" + cvalue + "; " + expires;
 	}
 
-	function getCookie(cname) {
+	var getCookie = function (cname) {
 		var name = cname + "=";
 		var ca = document.cookie.split(';');
 		for (var i = 0; i < ca.length; i++) {
