@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         collection do
           post 'add'
           post 'remove'
+          post 'checkout'
         end
       end
       resources :accounts, only: [] do
