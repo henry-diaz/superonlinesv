@@ -9,6 +9,6 @@ class Order < ActiveRecord::Base
 
   def amount
     items = order_items
-    items.collect{|i| i.quantity.to_f * i.product_price}.sum
+    items.collect{|i| i.quantity.to_i.to_f * i.product_price}.sum
   end
 end

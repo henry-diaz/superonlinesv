@@ -47,7 +47,7 @@
                     %td
                       = oi.product_price
                     %td
-                      = number_to_currency(oi.quantity.to_f * oi.product_price)
+                      = number_to_currency(oi.quantity.to_i.to_f * oi.product_price)
                 %tr
                   %td.text-right{ colspan: 3 }
                     %strong Total
