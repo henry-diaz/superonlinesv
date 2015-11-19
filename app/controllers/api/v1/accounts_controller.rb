@@ -31,6 +31,11 @@ module Api
         end
       end
 
+      def profile
+        @user = User.where(username: params[:username]).first
+        @success = @user.try(:valid_password?, params[:pass]) || false
+      end
+
     end
   end
 end

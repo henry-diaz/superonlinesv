@@ -18,6 +18,7 @@ Rails.application.routes.draw do
         collection do
           post 'signin'
           post 'login'
+          post 'profile'
         end
       end
       post 'logout', to: 'accounts#logout'
