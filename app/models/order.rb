@@ -6,4 +6,9 @@ class Order < ActiveRecord::Base
   validates :code, presence: true, uniqueness: true
 
   scope :draft, -> { where(status: 'draft') }
+
+  def amount
+    items = order_items
+    items.collect{|i| i.quantity.to_f * i.product_price}.sum
+  end
 end
