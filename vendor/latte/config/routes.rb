@@ -37,6 +37,7 @@ Rails.application.routes.draw do
         resources :tags, only: [:index]
         resources :users
         resources :videos
+        resources :orders
       end
     end
   rescue

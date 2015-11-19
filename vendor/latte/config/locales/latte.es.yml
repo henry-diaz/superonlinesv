@@ -254,6 +254,9 @@ es:
       product:
         one: Producto
         other: Productos
+      order:
+        one: Orden
+        other: Ordenes
       recipes_category:
         one: Categoría de recetas
         other: Categorías de recetas
@@ -422,6 +425,12 @@ es:
         priority: Prioridad
         url: URL
         video: Video
+      order:
+        code: Código
+        created_at: Fecha
+        status: Estado
+        user_id: Usuario
+        amount: Cantidad
     enum:
       article:
         status:
@@ -479,6 +488,7 @@ es:
           edit: Editar registro
           home: Inicio
           new: Nuevo registro
+          show: Ver
         navbar:
           logout: Cerrar sesión
           maintenances: Mantenimientos
@@ -531,6 +541,9 @@ es:
       form:
         general: Información general
     products:
+      form:
+        general: Información general
+    orders:
       form:
         general: Información general
     users:

@@ -1,0 +1,59 @@
+.row
+  .col-xs-12.col-sm-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        .panel-title.clearfix
+          %h4.pull-left
+            = model.model_name.human(count: :many)
+          = link_to latte_orders_url, class: 'btn btn-default pull-right' do
+            %span.glyphicon.glyphicon-chevron-left
+            Regresar
+      .panel-body
+        %dl
+          %dt
+            Fecha de creación
+          %dd
+            = @item.created_at.try(:strftime, '%d/%m/%Y %I:%M%P')
+          %dt
+            Orden No.
+          %dd
+            = @item.code
+          %dt
+            Estado
+          %dd
+            = @item.status == 'draft' ? 'Sin pagar' : 'Pagado'
+          %dt
+            Cliente
+          %dd
+            = @item.user.try(:name)
+        - if @item.order_items.size > 0
+          %strong
+            Productos en el carrito:
+          .table-responsive
+            %table.table.table-hover.table-striped
+              %thead
+                %tr
+                  %th Cantidad
+                  %th Producto
+                  %th Precio unitario
+                  %th Precio total
+              %tbody
+                - @item.order_items.each do |oi|
+                  %tr
+                    %td
+                      = oi.quantity
+                    %td
+                      = oi.product_name
+                    %td
+                      = oi.product_price
+                    %td
+                      = number_to_currency(oi.quantity.to_f * oi.product_price)
+                %tr
+                  %td.text-right{ colspan: 3 }
+                    %strong Total
+                  %td
+                    %strong
+                      = number_to_currency(@item.amount)
+        - else
+          .well
+            No tiene productos en el carrito

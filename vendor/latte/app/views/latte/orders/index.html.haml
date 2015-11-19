@@ -1,0 +1,27 @@
+.row
+  .col-xs-12.col-sm-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        .panel-title.clearfix
+          %h4
+            = model.model_name.human(count: :many)
+      .panel-body
+        .table-responsive
+          %table.table.table-hover.table-striped
+            %thead
+              %tr
+                = render partial: 'concerns/latte/tabled/table_header'
+                %th
+            %tbody
+              - @items.each do |item|
+                %tr
+                  - table_headers.each do |column|
+                    %td
+                      = item.decorate.send(column)
+                  %td{ colspan: 2 }
+                    = link_to item_url(item.id), class: 'btn btn-primary btn-sm' do
+                      = t 'Ver'
+
+        .clearfix
+          .pull-right
+            = will_paginate @items, renderer: BootstrapPagination::Rails

@@ -8,9 +8,10 @@ Bundler.require(*Rails.groups)
 
 module Superonlinesv
   class Application < Rails::Application
-    
+
     config.i18n.default_locale = LatteConfig[:languages].first
-    
+    config.time_zone = 'Central America'
+
     # Fallback translations
     config.i18n.fallbacks = true
 

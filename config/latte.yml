@@ -127,6 +127,12 @@ schema:
     - brand_id
     - quantity
     - condition
+  orders:
+    - created_at
+    - status
+    - code
+    - user_id
+    - amount
   pages:
     - content
     - description
@@ -231,5 +237,6 @@ icons:
   pages: file
   products: barcode
   recipes_categories: list-ul
+  orders: list-ul
   recipes: cutlery
   users: user
